@@ -7,7 +7,7 @@ public class Node {
     Human human;
 
     public Human getHuman() {
-        return human;
+            return human;
     }
 
     public void setHuman(Human human) {
