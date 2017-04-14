@@ -21,6 +21,7 @@ public class Main {
         linkedList.Insert(3,human3);
 
         linkedList.List();
+       System.out.println("Найден: " + linkedList.SearchByPos(6).getHuman().getName());
     }
 
 
