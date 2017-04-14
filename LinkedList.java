@@ -48,11 +48,11 @@ public class LinkedList {
         size++;
     }
     public void Insert(int position, Human human){
-        if (size == 0 || position>size){
+        if (size == 0 || position>=size){
             add(human);
         }else{
             Node tabo = first;
-            for (int i=1; i<position; i++){
+            for (int i=0; i<position; i++){
                 tabo = tabo.getNext();
             }
             Node node = new Node(null,null, human);
@@ -64,18 +64,33 @@ public class LinkedList {
             tabo.setPrev(node);
             size++;
             if (position < 2){
-                first = node;
+                //first = node;
             }
         }
     }
     public void  List (){
         Node tmp = first;
-        int i = 1;
+        int i = 0;
             while (tmp!= null) {
                 System.out.println("Элемент " + i + ":" + tmp.getHuman().getName());
                 i++;
                 tmp = tmp.getNext();
             }
-
     }
-}
+    public Node SearchByPos(int position) {
+        Node srch;
+        if ( position == 0 || position < (double)size / 2) {
+            srch = first;
+            for (int i = 0; i < position; i++) {
+                srch = srch.getNext();
+            }
+        } else {
+            srch = last;
+            for (int i = size - position; i > 1; i--) {
+                srch = srch.getPrev();
+            }
+        }
+            return srch;
+
+        }
+    }
